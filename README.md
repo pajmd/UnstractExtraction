@@ -145,4 +145,17 @@ not free. I did create an account pjmd @ptech-app.com but did not follow through
 
 See [installation guide](https://documentation.ubuntu.com/server/how-to/databases/install-mysql/) to set it up.
 
+For SqlDevolper install first Java sudo apt install openjdk-25-jdk
+
+Download [SqlDeveloper](https://www.oracle.com/database/sqldeveloper/technologies/download/) OtherPlatforms.
+
+[info](https://www.youtube.com/watch?v=trVCq2SMWKM)
+
+```
+cd ~/Downloads/
+unzip  sqldeveloper-24.3.1.347.1826-no-jre.zip
+sudo mv sqldeveloper /opt
+sh /opt/sqldeveloper/sqldeveloper.sh
+```
+Did not work security issue.
 
