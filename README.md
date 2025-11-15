@@ -133,3 +133,16 @@ Steps to use Unstract
 
 
 [Troubleshooting FAQ](https://docs.unstract.com/unstract/unstract_faq/troubleshooting/unstract_faq_troubleshooting/)
+
+### Setting up a Connector
+
+#### Google drive
+We wanted to use google drive as a connector but it appears we need a client_id to get authencated but set one up
+we need access to the Google Console API which requires a admin account in Google Workspace which is of course
+not free. I did create an account pjmd @ptech-app.com but did not follow through as I didn't want to pay.
+
+#### Local MySql
+
+See [installation guide](https://documentation.ubuntu.com/server/how-to/databases/install-mysql/) to set it up.
+
+
