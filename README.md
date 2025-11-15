@@ -20,7 +20,7 @@ and inject this data into excel.
 
 You can find the Unstract Open Source Edition source code repository on GitHub. To run Unstract you can either download one of the releases (recommended) or clone the Unstract repository. The package should contain the run-platform.sh script, which you need to then run to get all the required containers pulled and started. The steps look something like this:
 
-    * Step 1: Run the script: $ ./run-platform.sh
+    * Step 1: Run the script: $ sudo ./run-platform.sh
     * Step 2: Now visit http://frontend.unstract.localhost in your browser.
     * Step 3: Use user name and password unstract to login
 
