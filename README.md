@@ -145,6 +145,7 @@ not free. I did create an account pjmd @ptech-app.com but did not follow through
 
 See [installation guide](https://documentation.ubuntu.com/server/how-to/databases/install-mysql/) to set it up.
 
+
 #### SqlDeveloper
 
 Trying SqlDeveloper to connect to the DB.
@@ -190,12 +191,41 @@ mysql> exit
 
 Finally we update the extension connection settings with pjmd and ETL_DB.
 
-#### Set Unstract Connect to MySql
+#### Setting the Unstract Connector to MySql
 
-First we change the MySql bind address
+First we change the MySql bind address so it accepts connection fron any interface.
+
 ```
-sudo vi /etc/mysql/mysql.cnf
+$ sudo vi /etc/mysql/mysql.cnf
+[mysql]
 bind-address            = 0.0.0.0
-sudo systemctl restart mysql.service
+$ sudo systemctl restart mysql.service
+```
+
+I set up the **pjmd user** so it could connect from all possible addresses
+
+My host IP is 192.168.1.73
+
+```
+sudo mysql -u root
+
+mysql> CREATE USER 'pjmd'@'192.168.1.73' IDENTIFIED WITH caching_sha2_password BY 'philippe';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> GRANT SELECT on *.* TO 'pjmd'@'172.18.0.13';
+Query OK, 0 rows affected (0.01 sec)
+```
+
+Then I created the Connect with 192.168.1.73 but when I tested it I realized it did not accept a connection
+from the docker service IP 172.18.0.13.
+
+So I added pjmd user at 172.18.0.13 and it fixed the issue.
+
+```
+mysql> CREATE USER 'pjmd'@'172.18.0.13' IDENTIFIED WITH caching_sha2_password BY 'philippe';
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> GRANT SELECT on *.* TO 'pjmd'@'172.18.0.13';
+Query OK, 0 rows affected (0.01 sec)
 ```
 
