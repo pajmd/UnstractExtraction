@@ -145,6 +145,10 @@ not free. I did create an account pjmd @ptech-app.com but did not follow through
 
 See [installation guide](https://documentation.ubuntu.com/server/how-to/databases/install-mysql/) to set it up.
 
+#### SqlDeveloper
+
+Trying SqlDeveloper to connect to the DB.
+
 For SqlDevolper install first Java sudo apt install openjdk-25-jdk
 
 Download [SqlDeveloper](https://www.oracle.com/database/sqldeveloper/technologies/download/) OtherPlatforms.
@@ -157,5 +161,31 @@ unzip  sqldeveloper-24.3.1.347.1826-no-jre.zip
 sudo mv sqldeveloper /opt
 sh /opt/sqldeveloper/sqldeveloper.sh
 ```
-Did not work security issue.
+** SqlDeveloper did not work because JAVA security issue.**
 
+Instead we decided to use a VS Code extension to connect and interact with the DB
+
+#### SQLTools VS Code extension
+
+First we created a user pjmd 
+```
+sudo mysql -u root
+mysql> CREATE USER 'pjmd'@'localhost' IDENTIFIED WITH caching_sha2_password BY '****';
+mysql> GRANT SELECT on *.* TO 'pjmd'@'localhost';
+mysql> exit
+```
+
+From extension in VS Code we installed (SQLTools)[https://www.youtube.com/watch?v=KSxqIDOP1G0] from Matheues Teixeira, then we let it find a list of driver and select from the list MySql.
+
+We created a connection. MySql port is 3606 user pjmd, password to is set to AskOnConnect (VS code will prompt us at the top 
+for the password)since we haven't created a DB yet, we set database to sys and the connection timeout to 30.
+
+Next we create a DB.
+```
+sudo mysql -u root
+mysql> create database ETL_DB;
+mysql> showdb;
+mysql> exit
+```
+
+Finally we update the extension connection settings with pjmd and ETL_DB.
