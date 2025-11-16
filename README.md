@@ -189,3 +189,13 @@ mysql> exit
 ```
 
 Finally we update the extension connection settings with pjmd and ETL_DB.
+
+#### Set Unstract Connect to MySql
+
+First we change the MySql bind address
+```
+sudo vi /etc/mysql/mysql.cnf
+bind-address            = 0.0.0.0
+sudo systemctl restart mysql.service
+```
+
