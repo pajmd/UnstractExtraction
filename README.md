@@ -229,3 +229,12 @@ mysql> GRANT SELECT on *.* TO 'pjmd'@'172.18.0.13';
 Query OK, 0 rows affected (0.01 sec)
 ```
 
+## Create an ETL pipline
+
+Follow these [instructions](https://docs.unstract.com/unstract/unstract_platform/etl_pipeline/set_up_etl_pipeline/)
+
+As input connector we used SFPT.
+
+See these [instructiopns](https://sftpcloud.io/learn/sftp/ubuntu-sftp-server-how-to-install-and-configure) to install it.
+
+
