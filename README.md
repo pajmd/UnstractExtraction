@@ -228,6 +228,47 @@ Query OK, 0 rows affected (0.02 sec)
 mysql> GRANT SELECT on *.* TO 'pjmd'@'172.18.0.13';
 Query OK, 0 rows affected (0.01 sec)
 ```
+#### More SQL
+
+General commands from **mysql -u root**
+```
+mysql> show databases;
+
+mysql> connect information_schema;
+
+mysql> show tables;
+
+select * from USER_privileges;
+
+```
+
+
+Specifi user commands
+
+```
+mysql> GRANT insert,delete,update,create  on *.* TO 'pjmd'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT insert,delete,update,create  on *.* TO 'pjmd'@'192.168.1.73';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> GRANT insert,delete,update,create  on *.* TO 'pjmd'@'172.18.0.13';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from USER_privileges where grantee like '%pjmd%';
+
+Or to mak sure
+
+mysql> GRANT ALL PRIVILEGES  on *.* TO 'pjmd'@'172.18.0.13';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES  on *.* TO 'pjmd'@'192.168.1.73';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES  on *.* TO 'pjmd'@'localhost';
+Query OK, 0 rows affected (0.01 sec)
+
+```
 
 ## Create an ETL pipline
 
