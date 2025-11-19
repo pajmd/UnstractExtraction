@@ -29,9 +29,13 @@ user/pwd unstract/unstract
 
 See logs with:
     docker compose -f docker/docker-compose.yaml logs -f
+    
 Configure services by updating corresponding <service>/.env files.
+
 Make sure to restart the services with:
+```
     docker compose -f docker/docker-compose.yaml up -d
+```
 
 ## Note:
 
