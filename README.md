@@ -274,6 +274,16 @@ Query OK, 0 rows affected (0.01 sec)
 
 ```
 
+Remember to create the user first the grant the right:
+```
+mysql> CREATE USER 'pjmd'@'172.18.0.%' IDENTIFIED BY 'philippe';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES  on *.* TO 'pjmd'@'172.18.0.%';
+Query OK, 0 rows affected (0.01 sec)
+
+```
+
 ## Create an ETL pipline
 
 Follow these [instructions](https://docs.unstract.com/unstract/unstract_platform/etl_pipeline/set_up_etl_pipeline/)
