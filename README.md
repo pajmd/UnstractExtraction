@@ -189,7 +189,7 @@ Next we create a DB.
 ```
 sudo mysql -u root
 mysql> create database ETL_DB;
-mysql> showdb;
+mysql> show databases;
 mysql> exit
 ```
 
